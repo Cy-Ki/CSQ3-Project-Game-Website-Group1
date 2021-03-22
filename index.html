@@ -17,12 +17,12 @@
 				margin: auto;
 				padding: 0px;
 				overflow: hidden;
+				background-color: skyblue;
 			}
 			#deathColumn {
 				background-color: green;
 				height: 500px;
 				position: relative;
-				left: 425px;
 				width: 75px;
 				animation: deathColumn 1.5s infinite linear;
 			}
@@ -30,16 +30,35 @@
 				0%{left: 500px;}
 				100%{left: -75px}
 			}
+			@keyframes hole {
+				0%{left: 500px;}
+				100%{left: -75px}
+			}
+			#hole {
+				background-color: skyblue;
+				height: 125px;
+				position: relative;
+				width: 75px;
+				top: -500px;
+				animation: hole 1.5s infinite linear;
+			}
 		</style>
-		<script>
-		</script>
 	</head>
 	<body>
 		<h1>title thing</h1>
 		<div id="theGame">
 			<div id="deathColumn"></div>
-			<div id="hole"></div>
+			<div id="hole" onload="holeRandomizer()"></div>
 			<div id="birb"></div>
 		</div>
 	</body>
+	<script>
+		var hole = document.getElementById("hole");
+		
+		hole.addEventListener("animationiteration", theRandomizer);
+		function theRandomizer() {
+			var rand = -((Math.random()*300)+150);
+			this.style.top = rand + "px";			
+		}
+	</script>
 </html>
