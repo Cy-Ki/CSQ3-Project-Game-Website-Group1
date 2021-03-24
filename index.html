@@ -20,11 +20,12 @@
 				background-color: skyblue;
 			}
 			#deathColumn {
-				background-color: green;
 				height: 500px;
+				left: 600px;
 				position: relative;
 				width: 100px;
 				animation: deathColumn 1.75s infinite linear;
+				background-color: green;
 			}
 			@keyframes deathColumn {
 				0%{left: 600px;}
@@ -40,7 +41,9 @@
 				position: relative;
 				width: 100px;
 				top: -500px;
+				left: 600px;
 				animation: hole 1.75s infinite linear;
+				opacity: 1;
 			}
 			#birb {
 				width: 30px;
@@ -67,33 +70,53 @@
 		
 		hole.addEventListener("animationiteration", theRandomizer);
 		function theRandomizer() {
-			var rand = -((Math.random()*300)+150);
-			this.style.top = rand + "px";			
+			var rand = -((Math.random()*300)+200);
+			hole.style.top = rand + "px";			
 		}
 		
 		setInterval(function(){
 			var birbPosition = parseInt(window.getComputedStyle(birb).getPropertyValue("top"));
+			var deathColumns = parseInt(window.getComputedStyle(deathColumn).getPropertyValue("left"));
+			var holeBorders = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
+			var holeDeathValue = -(500-holeBorders);
 			if ((isFlying == 0)&&(birbPosition < 550)&&(birbPosition >= 80)) {
 				birb.style.top = (birbPosition + 4) + "px";
 			} else if (birbPosition >= 550){
 				birb.style.top = "550px";
 				alert("Game Over!");
 				birb.style.top = "250px";
+				location.reload();
 			} else if (birbPosition <=80) {
 				birb.style.top = "80px";
+				alert("Game Over!" + deathColumns + holeBorders);
+				birb.style.top = "250px";
+				location.reload();
+			} 
+			if ((birbPosition >= 550)||((deathColumns<60)&&(deathColumns>-40)&&((holeDeathValue<holeBorders)||(holeDeathValue>holeBorders+120)))) {
 				alert("Game Over!");
-				birb.style.top = "250px"
+				birb.style.top = "250px";
+				location.reload();
 			}
 		},15);
 		
 		function birbFly(fly) {
-			var birbPosition = parseInt(window.getComputedStyle(birb).getPropertyValue("top"));
+			var isFlying = fly; 
+			var countForNoRepetition = 0;
 			if (fly == 1){
-				birb.style.top = (birbPosition + (fly - 49)) + "px";
+				var upAnimation = setInterval(function(){
+					countForNoRepetition++;
+					var birbPosition = parseInt(window.getComputedStyle(birb).getPropertyValue("top"));
+					if (isFlying == 1) {
+						birb.style.top = (birbPosition - 7) + "px";
+					}
+					if (countForNoRepetition > 12){
+						clearInterval(upAnimation);
+					}
+				},15);
 			}
-			isFlying = fly; 
 		}
+		
+		// game reference and inspiration: https://www.youtube.com/watch?v=3SsYZDJdeXk
+		// bird icon: https://www.visualpharm.com/free-icons/bird-595b40b65ba036ed117d296d
 	</script>
-	//game reference and inspiration: https://www.youtube.com/watch?v=3SsYZDJdeXk
-	//bird icon: https://www.visualpharm.com/free-icons/bird-595b40b65ba036ed117d296d
 </html>
