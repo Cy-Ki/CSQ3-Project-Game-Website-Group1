@@ -8,15 +8,18 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH01sSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
 		<style>
 			* {
-				font-family: 'Roboto', sans-serif;
+				font-family: 'Ranchers', cursive;
 			}
-			h1 {
+			#header {
 				text-align: center;
+				border-radius: 0px 0px 30px 30px;
+				background-color: white;
+				color: gray;
+				border: 2px inset lightgray
 			}
-			
 			#theGame {
 				border: 1px solid black;
 				width: 600px;
@@ -61,11 +64,25 @@
 		</style>
 	</head>
 	<body>
-		<h1>Floppy Bird</h1>
+		<div id ="header">
+			<h1>Floppy Bird</h1>
+		</div>
 		<div id="theGame">
 			<div id="deathColumn"></div>
 			<div id="hole" onload="holeRandomizer()"></div>
 			<div id="birb"></div>
+		</div>
+		<br>
+		<hr>
+		<div>
+			<h2>How to play</h2>
+			<p>Press any key to go up, release to go down. Avoid all the obstacles on the way by going through the gap between the obstacles, and avoid crashing into the borders of the games as it results in a game over.</p>
+			<br>
+			<hr>
+			<h2>Tips and Tricks:</h2>
+			<p>If you have played the original Flappy Bird before, you know what to do. c:</p>
+			<p>As for those, try to be familiar with the appropriate timing to make the object continuously go up and down in a stable fashion.</p>
+			
 		</div>
 	</body>
 	<script>
@@ -123,8 +140,6 @@
 				},15);
 			}
 		}
-		
-		// game reference and inspiration: https://www.youtube.com/watch?v=3SsYZDJdeXk
 		// bird icon: https://www.visualpharm.com/free-icons/bird-595b40b65ba036ed117d296d
 	</script>
 </html>
