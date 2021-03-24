@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" onkeydown="birbFly(1)" onkeyup="birbFly(0)">
 	<head>	
-		<title>Floppy Bird</title>
+		<title>Fiesta Flaps</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+1" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH01sSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
 		<style>
-			* {
-				font-family: 'Ranchers', cursive;
-			}
-			#header {
+			h1 {
 				text-align: center;
-				border-radius: 0px 0px 30px 30px;
-				background-color: white;
-				color: gray;
-				border: 2px inset lightgray
 			}
+			
+						h5 {
+				text-align: center;
+			}
+			
+			
 			#theGame {
 				border: 1px solid black;
 				width: 600px;
@@ -27,7 +24,7 @@
 				margin: auto;
 				padding: 0px;
 				overflow: hidden;
-				background-color: skyblue;
+				background-image: url("https://i.imgur.com/WixMlr5.png");
 			}
 			#deathColumn {
 				height: 500px;
@@ -35,7 +32,7 @@
 				position: relative;
 				width: 100px;
 				animation: deathColumn 1.75s infinite linear;
-				background-color: green;
+				background-image: url("https://i.imgur.com/bG4fvfx.jpg");
 			}
 			@keyframes deathColumn {
 				0%{left: 600px;}
@@ -46,7 +43,7 @@
 				100%{left: -175px}
 			}
 			#hole {
-				background-color: skyblue;
+
 				height: 150px;
 				position: relative;
 				top: -500px;
@@ -54,9 +51,8 @@
 				animation: hole 1.75s infinite linear;
 			}
 			#birb {
-				width: 30px;
-				height: 30px;
-				background-image: url("https://visualpharm.com/assets/832/Bird-595b40b65ba036ed117d296d.svg");
+				width: 40px;
+				height: 40px;
 				top: 250px;
 				margin-left: 30px;
 				position: absolute;
@@ -64,25 +60,12 @@
 		</style>
 	</head>
 	<body>
-		<div id ="header">
-			<h1>Floppy Bird</h1>
-		</div>
+		<h1>Fiesta Flaps</h1>
+		<h5><a href="About the Developers.html">about the developers!</a></h5>
 		<div id="theGame">
 			<div id="deathColumn"></div>
-			<div id="hole" onload="holeRandomizer()"></div>
-			<div id="birb"></div>
-		</div>
-		<br>
-		<hr>
-		<div>
-			<h2>How to play</h2>
-			<p>Press any key to go up, release to go down. Avoid all the obstacles on the way by going through the gap between the obstacles, and avoid crashing into the borders of the games as it results in a game over.</p>
-			<br>
-			<hr>
-			<h2>Tips and Tricks:</h2>
-			<p>If you have played the original Flappy Bird before, you know what to do. c:</p>
-			<p>As for those, try to be familiar with the appropriate timing to make the object continuously go up and down in a stable fashion.</p>
-			
+			<div id="hole" onload="holeRandomizer()"><img src="https://i.imgur.com/5e5doD9.png" width="100px" height="150px"></div>
+			<div id="birb"><img src="https://i.imgur.com/Rt9RCT1.png" width="50px" height="50px"></div>
 		</div>
 	</body>
 	<script>
@@ -140,6 +123,8 @@
 				},15);
 			}
 		}
-		// bird icon: https://www.visualpharm.com/free-icons/bird-595b40b65ba036ed117d296d
+		
+		// game reference and inspiration: https://www.youtube.com/watch?v=3SsYZDJdeXk
+		// game sprites taken from: growtopia 
 	</script>
 </html>
